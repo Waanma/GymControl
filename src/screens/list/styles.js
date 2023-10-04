@@ -1,17 +1,15 @@
 import { StyleSheet, StatusBar } from "react-native";
+import { COLORS } from "../../constants/themes/colors";
 
 export const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    color: "white",
     paddingTop: StatusBar.currentHeight,
+    gap: 50,
   },
-  titleContainer: {
-    flex: 1,
-    justifyContent: "center",
-  },
-  title: {
-    fontSize: 20,
-    fontFamily: "LibreBaskerville-Bold",
-  },
+  browserContainer: {
+  flex: 1,
+  width: "70%",
+},
+  flatList:{
+}
 });

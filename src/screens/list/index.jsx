@@ -1,17 +1,26 @@
 import React from "react";
-import { View, Text, FlatList } from "react-native";
-
+import { FlatList, SafeAreaView, StatusBar, View } from "react-native";
 import { styles } from "./styles";
-import SafeAreaView from "react-native/Libraries/Components/SafeAreaView/SafeAreaView";
+import { useSelector } from "react-redux";
+import { Browser, ListItem } from "../../components";
+import { COLORS } from "../../constants/themes/colors";
 
-const List = () => {
-    return (
-        <SafeAreaView styles={styles.container}>
-            <View style={styles.titleContainer}>
-                <Text style={styles.title}>List</Text>
-            </View>
-        </SafeAreaView>
-    );
+const List = ({ navigation }) => {
+  const userList = useSelector((state) => state.list.userList);
+  const renderItem = ({ item }) => <ListItem {...item} />
+  const keyExtractor = (item) => item.id;
+  return (
+    <SafeAreaView style={styles.container}>      
+      <Browser/>
+      <FlatList
+        style={styles.flatList}
+        data={userList}
+        keyExtractor={keyExtractor}
+        renderItem={renderItem}
+      />
+    </SafeAreaView>
+  );
+
 };
 
 export default List;

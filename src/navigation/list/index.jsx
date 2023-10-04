@@ -1,7 +1,11 @@
 import React from "react";
+import { TouchableOpacity } from "react-native";
+import Ionicons from "@expo/vector-icons/Ionicons";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { List } from '../../screens';
-import {COLORS} from '../../constants/themes/colors';
+import { COLORS } from '../../constants/themes/colors';
+import ListManager from "../../screens/listManager";
+import { Details, UserDetails } from "../../components";
 
 const Stack = createNativeStackNavigator();
 
@@ -10,10 +14,7 @@ const ListNavigator = () => {
         <Stack.Navigator
             initialRouteName="List"
             screenOptions={{
-                headerStyle: {
-                    backGroundColor: "red",
-                },
-                headerTintColor: "green",
+                headerTintColor: COLORS.secondary,
                 headerTitleStyle: {
                     fontFamily: "Agdasima-Regular",
                 },
@@ -21,7 +22,34 @@ const ListNavigator = () => {
             <Stack.Screen
                 name="List"
                 component={List}
-                options={{ headerShown: false }} />
+                options={({ navigation }) => ({
+                    headerStyle: { backgroundColor: COLORS.night },
+                    headerRight: () => (
+                        <TouchableOpacity onPress={() => navigation.navigate("ListManager")}>
+                            <Ionicons name="add-circle-outline" size={25} color={COLORS.secondary} />
+                        </TouchableOpacity>
+                    ),
+                })}
+            />
+            <Stack.Screen
+                name="ListManager"
+                component={ListManager}
+                options={{
+                    title: "List Manager",
+                    headerTintColor: COLORS.secondary,
+                    headerStyle: { backgroundColor: COLORS.night },
+                }}
+            />
+
+            <Stack.Screen
+                name="UserDetails"
+                component={Details}
+                options={{ 
+                    title: "User Details",
+                    headerTintColor: COLORS.secondary,
+                    headerStyle: { backgroundColor: COLORS.night },
+                }}
+            />
         </Stack.Navigator>
     );
 };

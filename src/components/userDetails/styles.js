@@ -11,13 +11,12 @@ export const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "column",
     borderBottomColor: "black",
-    backgroundColor: COLORS.night,
+    backgroundColor: COLORS.inactive,
     borderColor: COLORS.primary,
     borderWidth: 0.5,
   },
   text:{
     padding: 3,
     margin: 2,
-    color: COLORS.secondary,
   },
 });

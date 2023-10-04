@@ -8,7 +8,7 @@ import { COLORS } from "../../constants/themes/colors";
 const BottomTab = createBottomTabNavigator();
 
 const TabsNavigator = () => {
-    const tabBarIconSize = 25;
+    const tabBarIconSize = 22;
     return (
         <BottomTab.Navigator
             initialRouteName="ListTab"
@@ -19,6 +19,7 @@ const TabsNavigator = () => {
                     fontSize: 20,
                 },
                 tabBarActiveTintColor: COLORS.secondary,
+                tabBarActiveBackgroundColor: COLORS.night,
                 tabBarInactiveBackgroundColor: COLORS.night,
                 tabBarIconSize: tabBarIconSize,
             }}

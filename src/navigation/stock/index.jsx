@@ -1,6 +1,7 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Stock } from '../../screens';
+import { COLORS } from "../../constants/themes/colors";
 
 const Stack = createNativeStackNavigator();
 
@@ -12,7 +13,7 @@ const StockNavigator = () => {
                 headerStyle: {
                     backGroundColor: "red",
                 },
-                headerTintColor: "green",
+                headerTintColor: COLORS.secondary,
                 headerTitleStyle: {
                     fontFamily: "Agdasima-Regular",
                 },
@@ -20,7 +21,7 @@ const StockNavigator = () => {
             <Stack.Screen
                 name="Stock"
                 component={Stock}
-                options={{ headerShown: false }} />
+                options={{ headerStyle: { backgroundColor: COLORS.night } }} />
         </Stack.Navigator>
     );
 };
